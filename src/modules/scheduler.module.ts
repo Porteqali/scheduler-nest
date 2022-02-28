@@ -6,6 +6,7 @@ import { UserSchema } from "src/models/users.schema";
 import { CancelPaymentStatusTask } from "src/schedules/cancelPaymentStatus.task";
 import { VerificationCodeTask } from "src/schedules/clearVerificationCode.task";
 import { TestTask } from "src/schedules/test.task";
+import { UpdateUsersLocationTask } from "src/schedules/updateUsersLocation.task";
 
 @Module({
     imports: [
@@ -16,7 +17,7 @@ import { TestTask } from "src/schedules/test.task";
         ]),
     ],
     controllers: [],
-    providers: [TestTask, VerificationCodeTask, CancelPaymentStatusTask],
+    providers: [TestTask, VerificationCodeTask, CancelPaymentStatusTask, UpdateUsersLocationTask],
     exports: [],
 })
 export class SchedulerModule {}
