@@ -26,6 +26,7 @@ export class VerificationCodeTask {
                     emailVerificationCode: null,
                     mobileVerificationCode: null,
                     verficationCodeSentAt: null,
+                    forgetPasswordCode: null,
                 },
             ).exec();
         }
