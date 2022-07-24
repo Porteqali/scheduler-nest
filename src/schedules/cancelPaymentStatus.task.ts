@@ -16,17 +16,18 @@ export class CancelPaymentStatusTask {
 
     @Cron(CronExpression.EVERY_MINUTE, { name: "cancelPaymentStatusTask", timeZone: "Asia/Tehran" })
     async job(): Promise<string | void> {
-        const time = moment().subtract(15, "minutes").toDate();
+        // TODO : this is commented for test
+        // const time = moment().subtract(15, "minutes").toDate();
 
-        let findUserCoursesQuery = this.UserCourseModel.find({
-            status: "waiting_for_payment",
-            createdAt: { $lt: time },
-        });
-        findUserCoursesQuery.limit(500);
-        const userCourses = await findUserCoursesQuery.exec();
+        // let findUserCoursesQuery = this.UserCourseModel.find({
+        //     status: "waiting_for_payment",
+        //     createdAt: { $lt: time },
+        // });
+        // findUserCoursesQuery.limit(500);
+        // const userCourses = await findUserCoursesQuery.exec();
 
-        for (let i = 0; i < userCourses.length; i++) {
-            await this.UserCourseModel.updateOne({ _id: userCourses[i]._id }, { status: "cancel" }).exec();
-        }
+        // for (let i = 0; i < userCourses.length; i++) {
+        //     await this.UserCourseModel.updateOne({ _id: userCourses[i]._id }, { status: "cancel" }).exec();
+        // }
     }
 }
